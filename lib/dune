@@ -1,13 +1,18 @@
 (library
- (name tdl)
+ (public_name tdl)
  (ctypes
   (external_library_name libtdl)
   (headers
-   (include "tdl.h" "tdl/tdl_version.h"))
+   (include
+    "tdl.h"
+    "tdl/tdl_version.h"
+    "tdl/tdl_canvas.h"
+    "tdl/tdl_text.h"
+    "tdl/tdl_style.h"))
   (build_flags_resolver
    (vendored
-    (c_flags -ltdl)
-    (c_library_flags -ltdl)))
+    (c_flags -ltdl -lu8string)
+    (c_library_flags -ltdl -lu8string)))
   (type_description
    (instance Type)
    (functor Type_description))
