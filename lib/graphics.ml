@@ -24,5 +24,13 @@ module Open_graph () = struct
     f ();
     display ()
 
+  let moveto x y = Bindings.set_cursor_pos canva (Bindings.point x y)
   let print text = Bindings.print canva text |> ignore
+
+  let current_point () =
+    let point = Ctypes.getf Ctypes.(!@canva) Bindings.Canvas.cursor in
+    let x = Ctypes.getf point Bindings.Point.x in
+    let y = Ctypes.getf point Bindings.Point.y in
+
+    (x, y)
 end

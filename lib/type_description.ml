@@ -6,9 +6,9 @@ module Types (F : Ctypes.TYPE) = struct
   and style
   and u8string
   and point_color
+  and point
 
-  let canvas : canvas structure typ = structure "tdl_canvas"
-  let style : style structure typ = structure "tdl_style"
+  (* let canvas : canvas structure typ = structure "tdl_canvas" *)
 
   module U8string = struct
     let t : u8string structure typ = structure "u8string"
@@ -37,6 +37,19 @@ module Types (F : Ctypes.TYPE) = struct
     let t : text structure typ = structure "tdl_text"
     let string = field t "string" U8string.t
     let style = field t "style" Style.t
+    let () = seal t
+  end
+
+  module Point = struct
+    let t : point structure typ = structure "tdl_point"
+    let x = field t "x" int
+    let y = field t "y" int
+    let () = seal t
+  end
+
+  module Canvas = struct
+    let t : canvas structure typ = structure "tdl_canvas"
+    let cursor = field t "cursor" Point.t
     let () = seal t
   end
 end
