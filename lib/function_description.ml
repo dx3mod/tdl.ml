@@ -33,6 +33,11 @@ module Functions (F : Ctypes.FOREIGN) = struct
 
   (* Shapes *)
 
+  let draw_line =
+    foreign "tdl_draw_line"
+      (ptr Types.Canvas.t @-> Types.Buffer_point.t @-> Types.Line.t
+     @-> returning bool)
+
   (* Canvas *)
 
   let canvas = foreign "tdl_canvas" (void @-> returning (ptr Types.Canvas.t))
@@ -65,7 +70,7 @@ module Functions (F : Ctypes.FOREIGN) = struct
 
   let buffer_point =
     foreign "tdl_buffer_point"
-      (ptr char @-> Types.Style.t @-> returning Types.Buffer_point.t)
+      (string @-> Types.Style.t @-> returning Types.Buffer_point.t)
 
   (* Common *)
 
