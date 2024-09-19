@@ -8,6 +8,16 @@ module Functions (F : Ctypes.FOREIGN) = struct
 
   let display = foreign "tdl_display" (ptr Types.Canvas.t @-> returning void)
 
+  (* Terminal *)
+
+  let terminal_clear = foreign "tdl_terminal_clear" (void @-> returning void)
+
+  let terminal_set_alternate_screen =
+    foreign "tdl_terminal_set_alternate_screen" (bool @-> returning void)
+
+  let terminal_set_cursor =
+    foreign "tdl_terminal_set_cursor" (bool @-> returning void)
+
   (* Geometry *)
 
   let point = foreign "tdl_point" (int @-> int @-> returning Types.Point.t)
