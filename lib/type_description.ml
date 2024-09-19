@@ -47,6 +47,27 @@ module Types (F : Ctypes.TYPE) = struct
     let () = seal t
   end
 
+  module Size = struct
+    let t : point structure typ = structure "tdl_size"
+    let width = field t "width" int
+    let height = field t "height" int
+    let () = seal t
+  end
+
+  module Line = struct
+    let t : point structure typ = structure "tdl_line"
+    let a = field t "a" Point.t
+    let b = field t "b" Point.t
+    let () = seal t
+  end
+
+  module Rectangle = struct
+    let t : point structure typ = structure "tdl_rectangle"
+    let point = field t "point" Point.t
+    let size = field t "size" Size.t
+    let () = seal t
+  end
+
   module Canvas = struct
     let t : canvas structure typ = structure "tdl_canvas"
     let cursor = field t "cursor" Point.t
