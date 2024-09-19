@@ -31,6 +31,8 @@ module Functions (F : Ctypes.FOREIGN) = struct
     foreign "tdl_rectangle"
       (Types.Point.t @-> Types.Size.t @-> returning Types.Rectangle.t)
 
+  (* Shapes *)
+
   (* Canvas *)
 
   let canvas = foreign "tdl_canvas" (void @-> returning (ptr Types.Canvas.t))
@@ -58,6 +60,12 @@ module Functions (F : Ctypes.FOREIGN) = struct
   let text =
     foreign "tdl_text"
       (Types.U8string.t @-> Types.Style.t @-> returning Types.Text.t)
+
+  (* Buffer point *)
+
+  let buffer_point =
+    foreign "tdl_buffer_point"
+      (ptr char @-> Types.Style.t @-> returning Types.Buffer_point.t)
 
   (* Common *)
 

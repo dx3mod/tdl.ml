@@ -82,4 +82,13 @@ module Types (F : Ctypes.TYPE) = struct
     let cursor = field t "cursor" Point.t
     let () = seal t
   end
+
+  let u8char = array 5 char
+
+  module Buffer_point = struct
+    let t : point structure typ = structure "tdl_buffer_point"
+    let character = field t "character" u8char
+    let style = field t "style" Style.t
+    let () = seal t
+  end
 end

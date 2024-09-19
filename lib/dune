@@ -8,7 +8,12 @@
     "tdl/tdl_version.h"
     "tdl/tdl_canvas.h"
     "tdl/tdl_text.h"
-    "tdl/tdl_style.h"))
+    "tdl/tdl_style.h"
+    "tdl/tdl_terminal.h"
+    "tdl/tdl_geometry.h"
+    "tdl/tdl_shapes.h"
+    "tdl/tdl_symbols_export.h"
+    "tdl/tdl_bufferpoint.h"))
   (build_flags_resolver
    (vendored
     (c_flags -ltdl -lu8string)
