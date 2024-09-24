@@ -31,10 +31,10 @@ module Types (F : Ctypes.TYPE) = struct
     module Attrs = struct
       let no = 0
       let bold = 1
-      let italic = Int.shift_left 1 1
-      let underline = Int.shift_left 1 2
-      let crossed_out = Int.shift_left 1 3
-      let dim = Int.shift_left 1 4
+      let italic = 1 lsl 1
+      let underline = 1 lsl 2
+      let crossed_out = 1 lsl 3
+      let dim = 1 lsl 4
     end
 
     let attributes = field t "attributes" int
